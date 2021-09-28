@@ -1,4 +1,3 @@
-import 'dart:async';
 /*
 Breaks a Javascript string into individual user-perceived "characters" 
 called extended grapheme clusters by implementing the Unicode UAX-29 standard, version 10.0.0
@@ -2221,7 +2220,7 @@ class GraphemeSplitter {
       return string.length;
     }
     final prev = getGraphemeBreakProperty(codePointAt(string, index));
-    final mid = new List<int>();
+    final mid = <int>[];
     for (int i = index + 1; i < string.length; i++) {
       // check for already processed low surrogates
       if (isSurrogate(string, i - 1)) {
@@ -2240,7 +2239,7 @@ class GraphemeSplitter {
 
   /// splitGraphemes Breaks the given string into an array of grapheme cluster strings
   Iterable<String> splitGraphemes(String str) {
-    final res = new List<String>();
+    final res = <String>[];
     var index = 0;
     var brk;
     while ((brk = this.nextBreak(str, index)) < str.length) {

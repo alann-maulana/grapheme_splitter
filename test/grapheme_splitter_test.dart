@@ -64,8 +64,7 @@ void main() {
     final testData = new File(jsonPath)
         .readAsStringSync()
         .split("\n")
-        .where(
-            (line) => line != null && line.length > 0 && !line.startsWith("#"))
+        .where((line) => line.length > 0 && !line.startsWith("#"))
         .map((line) => line.split("#")[0])
         .map(testDataFromLine);
 
